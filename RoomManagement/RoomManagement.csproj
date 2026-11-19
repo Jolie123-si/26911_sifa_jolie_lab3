@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>RoomManagement</RootNamespace>
+    <AssemblyTitle>Meeting Room Management</AssemblyTitle>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="11.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="11.0.0" />
+  </ItemGroup>
+
+  <!-- Tell Visual Studio which files are forms, so they open in the Designer -->
+  <ItemGroup>
+    <Compile Update="Views\AvailableRoomForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\BookingRequestForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\BookRoomForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\CancelReasonForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\ChangePasswordForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\DashboardForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\ForgotPasswordForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\HolidayForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\LoginForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\MenuForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\MyBookingForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\RegisterForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\ResetPasswordForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\RoomDetailsForm.cs"><SubType>Form</SubType></Compile>
+    <Compile Update="Views\RoomForm.cs"><SubType>Form</SubType></Compile>
+  </ItemGroup>
+
+  <!-- Show each Form.Designer.cs and Form.resx under its Form.cs -->
+  <ItemGroup>
+    <Compile Update="Views\*.Designer.cs">
+      <DependentUpon>$([System.String]::Copy('%(Filename)').Replace('.Designer', '')).cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Views\*.resx">
+      <DependentUpon>%(Filename).cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
